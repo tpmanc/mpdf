@@ -2,7 +2,9 @@
 
 namespace Mpdf;
 
-class AddFontTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class AddFontTest extends TestCase
 {
 
 	/**
@@ -10,7 +12,7 @@ class AddFontTest extends \PHPUnit_Framework_TestCase
 	 */
 	private $mpdf;
 
-	protected function setUp()
+	protected function setUp(): void
 	{
 		parent::setUp();
 
@@ -20,14 +22,12 @@ class AddFontTest extends \PHPUnit_Framework_TestCase
 	public function testAddFont()
 	{
 		$this->mpdf->AddFont('sun-exta');
+		$this->assertTrue(true);
 	}
 
-	/**
-	 * @expectedException \Mpdf\MpdfException
-	 * @expectedExceptionMessage Font "font" is not supported
-	 */
 	public function testAddUnsupportedFont()
 	{
+		$this->expectException(\Mpdf\MpdfException::class);
 		$this->mpdf->AddFont('font');
 	}
 

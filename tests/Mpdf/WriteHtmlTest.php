@@ -3,20 +3,21 @@
 namespace Mpdf;
 
 use Mockery;
+use PHPUnit\Framework\TestCase;
 
-class WriteHtmlTest extends \PHPUnit_Framework_TestCase
+class WriteHtmlTest extends TestCase
 {
 
 	private $mpdf;
 
-	protected function setUp()
+	protected function setUp(): void
 	{
 		parent::setUp();
 
 		$this->mpdf = new Mpdf();
 	}
 
-	protected function tearDown()
+	protected function tearDown(): void
 	{
 		parent::tearDown();
 
@@ -74,7 +75,7 @@ class WriteHtmlTest extends \PHPUnit_Framework_TestCase
 	public function testItThrowsOnUnacceptableMode($mode)
 	{
 		$this->expectException(MpdfException::class);
-		$this->expectExceptionMessageRegExp('/HTMLParserMode/');
+		$this->expectExceptionMessageMatches('/HTMLParserMode/');
 
 		$this->mpdf->WriteHTML('test', $mode);
 	}

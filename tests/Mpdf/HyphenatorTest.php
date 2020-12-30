@@ -3,8 +3,9 @@
 namespace Mpdf;
 
 use Mockery;
+use PHPUnit\Framework\TestCase;
 
-class HyphenatorTest extends \PHPUnit_Framework_TestCase
+class HyphenatorTest extends TestCase
 {
 
 	/**
@@ -12,7 +13,7 @@ class HyphenatorTest extends \PHPUnit_Framework_TestCase
 	 */
 	private $hyphenator;
 
-	protected function setUp()
+	protected function setUp(): void
 	{
 		parent::setUp();
 
@@ -34,7 +35,7 @@ class HyphenatorTest extends \PHPUnit_Framework_TestCase
 		$this->hyphenator = new Hyphenator($mpdf);
 	}
 
-	protected function tearDown()
+	protected function tearDown(): void
 	{
 		parent::tearDown();
 

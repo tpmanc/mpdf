@@ -2,7 +2,9 @@
 
 namespace Issues;
 
-class Issue1134Test extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class Issue1134Test extends TestCase
 {
 
 	public function testBorderDetailsDefaultValue()

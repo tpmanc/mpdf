@@ -2,7 +2,9 @@
 
 namespace Issues;
 
-class Issue736Test extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class Issue736Test extends TestCase
 {
 
 	public function testNoNoticeWithUnicodeCharacterAndFontSubDisabled()

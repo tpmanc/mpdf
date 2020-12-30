@@ -25,7 +25,7 @@ class Issue730Test extends \Mpdf\BaseMpdfTest
 		<div class="value">Value</div>
 		');
 
-		$this->assertRegExp('/q 0.000 g  0 Tr BT 226.773 780.129 Td/', $this->mpdf->pages[1]);
+		$this->assertMatchesRegularExpression('/q 0.000 g  0 Tr BT 226.773 780.129 Td/', $this->mpdf->pages[1]);
 	}
 
 }

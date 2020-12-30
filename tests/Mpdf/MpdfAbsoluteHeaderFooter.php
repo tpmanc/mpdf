@@ -2,7 +2,9 @@
 
 namespace Mpdf;
 
-class MpdfAbsoluteHeaderFooter extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class MpdfAbsoluteHeaderFooter extends TestCase
 {
 	public function testAbsoluteHeaderFooter()
 	{

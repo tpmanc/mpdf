@@ -26,7 +26,7 @@ class Issue640Test extends \Mpdf\BaseMpdfTest
 
 		$this->mpdf->Close();
 
-		$this->assertRegexp('/1.0000 0.0000 0.0000 1.0000 0.0000 -725.6979 cm/', $this->mpdf->pages[1]);
+		$this->assertMatchesRegularExpression('/1.0000 0.0000 0.0000 1.0000 0.0000 -725.6979 cm/', $this->mpdf->pages[1]);
 	}
 
 }

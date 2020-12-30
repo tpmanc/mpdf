@@ -7,6 +7,7 @@ use Mpdf\Pdf\Protection;
 use Mpdf\Pdf\Protection\UniqidGenerator;
 use Mpdf\Writer\BaseWriter;
 use pdf_parser;
+use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 use setasign\Fpdi\PdfParser\PdfParser;
 use setasign\Fpdi\PdfParser\StreamReader;
@@ -32,7 +33,7 @@ use setasign\Fpdi\PdfReader\PdfReader;
  *
  * @group mpdi
  */
-class FpdiTest extends \PHPUnit_Framework_TestCase
+class FpdiTest extends TestCase
 {
 	public function testReturnValueOfUseTemplate()
 	{
@@ -50,12 +51,10 @@ class FpdiTest extends \PHPUnit_Framework_TestCase
 		], $size);
 	}
 
-	/**
-	 * @expectedException \setasign\Fpdi\PdfParser\CrossReference\CrossReferenceException
-	 * @expectedExceptionCode \setasign\Fpdi\PdfParser\CrossReference\CrossReferenceException::COMPRESSED_XREF
-	 */
 	public function testBehaviourOnCompressedXref()
 	{
+		$this->expectException(\setasign\Fpdi\PdfParser\CrossReference\CrossReferenceException::class);
+		$this->expectExceptionCode(\setasign\Fpdi\PdfParser\CrossReference\CrossReferenceException::COMPRESSED_XREF);
 		$pdf = new Mpdf();
 		$pdf->setSourceFile(__DIR__ . '/../data/pdfs/compressed-xref.pdf');
 	}

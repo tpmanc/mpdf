@@ -7,6 +7,7 @@ use Mockery;
 use Mpdf\Color\ColorModeConverter;
 use Mpdf\Cache;
 use Mpdf\RemoteContentFetcher;
+use PHPUnit\Framework\TestCase;
 use Psr\Log\NullLogger;
 use Mpdf\CssManager;
 use Mpdf\Color\ColorConverter;
@@ -16,7 +17,7 @@ use Mpdf\Mpdf;
 use Mpdf\Otl;
 use Mpdf\SizeConverter;
 
-class ImageProcessorTest extends \PHPUnit_Framework_TestCase
+class ImageProcessorTest extends TestCase
 {
 
 	/**
@@ -24,7 +25,7 @@ class ImageProcessorTest extends \PHPUnit_Framework_TestCase
 	 */
 	private $image;
 
-	protected function setUp()
+	protected function setUp(): void
 	{
 		parent::setUp();
 
@@ -74,7 +75,7 @@ class ImageProcessorTest extends \PHPUnit_Framework_TestCase
 
 		}
 
-		$this->assertRegExp($match, $e->getMessage());
+		$this->assertMatchesRegularExpression($match, $e->getMessage());
 	}
 
 	public function dataProviderStreamBlacklist()

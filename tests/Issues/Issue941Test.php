@@ -2,7 +2,9 @@
 
 namespace Issues;
 
-class Issue941Test extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class Issue941Test extends TestCase
 {
 
 	public function testMultiCellDoesNotFailOtl()

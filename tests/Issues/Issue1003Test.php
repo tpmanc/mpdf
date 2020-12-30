@@ -2,7 +2,9 @@
 
 namespace Issues;
 
-class Issue1003Test extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class Issue1003Test extends TestCase
 {
 
 	public function testNoNoticeWithAutoPaddingRight()

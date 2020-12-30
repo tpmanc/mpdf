@@ -2,10 +2,12 @@
 
 namespace Mpdf\Barcode;
 
+use PHPUnit\Framework\TestCase;
+
 /**
  * @group unit
  */
-class ImbTest extends \PHPUnit_Framework_TestCase
+class ImbTest extends TestCase
 {
 
 	public function testInit()
@@ -17,7 +19,7 @@ class ImbTest extends \PHPUnit_Framework_TestCase
 
 		$array = $barcode->getData();
 
-		$this->assertInternalType('array', $array);
+		$this->assertIsArray($array);
 		$this->assertArrayHasKey('maxh', $array);
 		$this->assertGreaterThan(0, $array['maxh']);
 

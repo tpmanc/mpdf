@@ -2,7 +2,9 @@
 
 namespace Mpdf;
 
-class PDFATest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class PDFATest extends TestCase
 {
 
 	/**
@@ -10,7 +12,7 @@ class PDFATest extends \PHPUnit_Framework_TestCase
 	 */
 	private $mpdf;
 
-	protected function setUp()
+	protected function setUp(): void
 	{
 		$this->mpdf = new Mpdf();
 		$this->mpdf->writeHtml('<html><body>PDFA Test</body></html>');
@@ -29,7 +31,7 @@ class PDFATest extends \PHPUnit_Framework_TestCase
 		$expected .= '    <pdfaid:amd>2005</pdfaid:amd>' . "\n";
 		$expected .= '   </rdf:Description>' . "\n";
 
-		$this->assertContains($expected, $output);
+		$this->assertStringContainsString($expected, $output);
 	}
 
 	public function testPDFA_Version_Fail()
@@ -54,7 +56,7 @@ class PDFATest extends \PHPUnit_Framework_TestCase
 		$expected .= '    <pdfaid:conformance>B</pdfaid:conformance>' . "\n";
 		$expected .= '   </rdf:Description>' . "\n";
 
-		$this->assertContains($expected, $output);
+		$this->assertStringContainsString($expected, $output);
 	}
 
 }

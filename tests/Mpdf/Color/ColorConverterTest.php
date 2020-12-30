@@ -4,8 +4,9 @@ namespace Mpdf\Color;
 
 use Mockery;
 use Mpdf\Mpdf;
+use PHPUnit\Framework\TestCase;
 
-class ColorConverterTest extends \PHPUnit_Framework_TestCase
+class ColorConverterTest extends TestCase
 {
 
 	/**
@@ -19,7 +20,7 @@ class ColorConverterTest extends \PHPUnit_Framework_TestCase
 
 	private $restrictor;
 
-	protected function setUp()
+	protected function setUp(): void
 	{
 		parent::setUp();
 
@@ -33,7 +34,7 @@ class ColorConverterTest extends \PHPUnit_Framework_TestCase
 		);
 	}
 
-	protected function tearDown()
+	protected function tearDown(): void
 	{
 		parent::tearDown();
 
@@ -92,12 +93,10 @@ class ColorConverterTest extends \PHPUnit_Framework_TestCase
 		];
 	}
 
-	/**
-	 * @expectedException \Mpdf\MpdfException
-	 * @expectedExceptionMessage Undefined spot color "PANTONE 534 EC"
-	 */
 	public function testConvertUnknownSpotColor()
 	{
+		$this->expectException(\Mpdf\MpdfException::class);
+		$this->expectExceptionMessage('Undefined spot color "PANTONE 534 EC"');
 		$this->converter->convert('spot(PANTONE 534 EC, 100%, 85, 65, 47)');
 	}
 
@@ -154,11 +153,9 @@ class ColorConverterTest extends \PHPUnit_Framework_TestCase
 		$this->assertSame($output, $this->converter->lighten($input));
 	}
 
-	/**
-	 * @expectedException \Mpdf\MpdfException
-	 */
 	public function testLightenWithArray()
 	{
+		$this->expectException(\Mpdf\MpdfException::class);
 		$this->converter->lighten([]);
 	}
 
@@ -192,11 +189,9 @@ class ColorConverterTest extends \PHPUnit_Framework_TestCase
 		$this->assertSame($output, $this->converter->darken($input));
 	}
 
-	/**
-	 * @expectedException \Mpdf\MpdfException
-	 */
 	public function testDarkenWithArray()
 	{
+		$this->expectException(\Mpdf\MpdfException::class);
 		$this->converter->darken([]);
 	}
 
@@ -222,19 +217,15 @@ class ColorConverterTest extends \PHPUnit_Framework_TestCase
 		$this->assertSame($output, $this->converter->invert($input));
 	}
 
-	/**
-	 * @expectedException \Mpdf\MpdfException
-	 */
 	public function testInvertWithArray()
 	{
+		$this->expectException(\Mpdf\MpdfException::class);
 		$this->converter->invert([]);
 	}
 
-	/**
-	 * @expectedException \Mpdf\MpdfException
-	 */
 	public function testInvertNonRgb()
 	{
+		$this->expectException(\Mpdf\MpdfException::class);
 		$this->converter->invert("2\x00d\x00\x00\x00");
 	}
 

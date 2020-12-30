@@ -4,8 +4,9 @@ namespace Mpdf\Conversion;
 
 use Mockery;
 use Mpdf\Mpdf;
+use PHPUnit\Framework\TestCase;
 
-class DecToOtherTest extends \PHPUnit_Framework_TestCase
+class DecToOtherTest extends TestCase
 {
 
 	/**
@@ -18,7 +19,7 @@ class DecToOtherTest extends \PHPUnit_Framework_TestCase
 	 */
 	private $mpdf;
 
-	protected function setUp()
+	protected function setUp(): void
 	{
 		parent::setUp();
 
@@ -30,7 +31,7 @@ class DecToOtherTest extends \PHPUnit_Framework_TestCase
 		);
 	}
 
-	protected function tearDown()
+	protected function tearDown(): void
 	{
 		parent::tearDown();
 

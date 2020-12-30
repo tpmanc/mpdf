@@ -2,7 +2,9 @@
 
 namespace Mpdf\Conversion;
 
-class DecToHebrewTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class DecToHebrewTest extends TestCase
 {
 
 	/**
@@ -10,7 +12,7 @@ class DecToHebrewTest extends \PHPUnit_Framework_TestCase
 	 */
 	private $converter;
 
-	protected function setUp()
+	protected function setUp(): void
 	{
 		parent::setUp();
 

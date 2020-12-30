@@ -2,7 +2,9 @@
 
 namespace Mpdf\Conversion;
 
-class DecToRomanTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class DecToRomanTest extends TestCase
 {
 
 	/**
@@ -10,7 +12,7 @@ class DecToRomanTest extends \PHPUnit_Framework_TestCase
 	 */
 	private $converter;
 
-	protected function setUp()
+	protected function setUp(): void
 	{
 		parent::setUp();
 
@@ -45,19 +47,15 @@ class DecToRomanTest extends \PHPUnit_Framework_TestCase
 		];
 	}
 
-	/**
-	 * @expectedException \OutOfRangeException
-	 */
 	public function testLowerBound()
 	{
+		$this->expectException(\OutOfRangeException::class);
 		$this->converter->convert(0);
 	}
 
-	/**
-	 * @expectedException \OutOfBoundsException
-	 */
 	public function testUpperBound()
 	{
+		$this->expectException(\OutOfBoundsException::class);
 		$this->converter->convert(5000);
 	}
 

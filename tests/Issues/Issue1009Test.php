@@ -2,7 +2,9 @@
 
 namespace Issues;
 
-class Issue1009Test extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class Issue1009Test extends TestCase
 {
 
 	public function testImportantWarning()

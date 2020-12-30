@@ -2,7 +2,9 @@
 
 namespace Mpdf;
 
-class GetFullPathTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class GetFullPathTest extends TestCase
 {
 
 	public function testGetFullPath()

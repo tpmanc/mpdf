@@ -2,19 +2,21 @@
 
 namespace Mpdf\Barcode;
 
+use PHPUnit\Framework\TestCase;
+
 /**
  * @group unit
  */
-class EanUpcTest extends \PHPUnit_Framework_TestCase
+class EanUpcTest extends TestCase
 {
 
 	public function testInit()
 	{
 		$barcode = new EanUpc('9783161484100', 13, 11, 7, 0.33, 25.93);
 		$array = $barcode->getData();
-		$this->assertInternalType('array', $array);
+		$this->assertIsArray($array);
 		$this->assertArrayHasKey('bcode', $array);
-		$this->assertInternalType('array', $array['bcode']);
+		$this->assertIsArray($array['bcode']);
 	}
 
 	public function invalidCodeProvider()
@@ -27,11 +29,11 @@ class EanUpcTest extends \PHPUnit_Framework_TestCase
 
 	/**
 	 * @dataProvider invalidCodeProvider
-	 * @expectedException \Mpdf\Barcode\BarcodeException
-	 * @expectedExceptionMessage Invalid EAN UPC barcode value
 	 */
 	public function testInvalidCode($code)
 	{
+		$this->expectException(\Mpdf\Barcode\BarcodeException::class);
+		$this->expectExceptionMessage('Invalid EAN UPC barcode value');
 		new EanUpc($code, 13, 11, 7, 0.33, 25.93);
 	}
 

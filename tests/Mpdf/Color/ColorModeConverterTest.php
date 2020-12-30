@@ -3,8 +3,9 @@
 namespace Mpdf\Color;
 
 use Mockery;
+use PHPUnit\Framework\TestCase;
 
-class ColorModeConverterTest extends \PHPUnit_Framework_TestCase
+class ColorModeConverterTest extends TestCase
 {
 
 	/**
@@ -12,7 +13,7 @@ class ColorModeConverterTest extends \PHPUnit_Framework_TestCase
 	 */
 	private $converter;
 
-	protected function setUp()
+	protected function setUp(): void
 	{
 		parent::setUp();
 

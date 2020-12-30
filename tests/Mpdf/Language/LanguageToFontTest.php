@@ -3,11 +3,12 @@
 namespace Mpdf\Language;
 
 use Mockery;
+use PHPUnit\Framework\TestCase;
 
-class LanguageToFontTest extends \PHPUnit_Framework_TestCase
+class LanguageToFontTest extends TestCase
 {
 
-	protected function tearDown()
+	protected function tearDown(): void
 	{
 		parent::tearDown();
 
